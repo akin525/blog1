@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="icon" href="https://renomobilemoney.com/images/bn.jpeg"  />
+{{--    <link rel="icon" href="https://renomobilemoney.com/images/bn.jpeg"  />--}}
 
     <title>@yield('tittle')</title>
 
@@ -195,7 +195,7 @@
                     <a class="nav-link" href="javascript:void(0)">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Renomobilemoney</a>
+                    <a class="nav-link" href="#">Blogger</a>
                 </li>
             </ul>
         </div>
