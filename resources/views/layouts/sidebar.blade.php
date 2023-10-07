@@ -121,7 +121,6 @@
         </nav>
     </header>
 
-
     <aside class="main-sidebar">
         <!-- sidebar-->
         <section class="sidebar position-relative">
@@ -180,11 +179,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <div class="container-full">
-            <!-- Main content -->
-
             @yield('content')
-
-
         </div>
     </div>
 
