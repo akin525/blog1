@@ -29,7 +29,7 @@
                         <h4 class="box-title">Edit Category</h4>
                     </div>
                     <div class="box-body">
-                        <x-validation-errors class="mb-4" />
+                        <x-validation-errors class="alert alert-danger" />
 
                         <form action="{{route('updatecategory')}}" method="post" enctype="multipart/form-data">
                             @csrf
