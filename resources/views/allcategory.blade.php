@@ -44,7 +44,7 @@
                                         <tr>
                                             <td>{{$sa->name}}</td>
                                             <td>{{$sa['created_at']}}</td>
-                                            <td><a href="#" class="badge badge-success">Edit</a></td>
+                                            <td><a href="{{route('editcategory', $sa['id'])}}" class="badge badge-success">Edit</a></td>
                                         </tr>
                                         @endforeach
                                         </tbody>

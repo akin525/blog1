@@ -50,4 +50,26 @@ class CategoryController
         $category=Category::all();
         return view('allcategory', compact('category'));
     }
+    public function editcategory($request)
+    {
+        $category=Category::where('id', $request)->first();
+
+        return view('editcategory', compact('category'));
+    }
+
+    public function updatecategory(Request $request)
+    {
+        $request->validate([
+            'id'=>'required',
+            'name'=>'required',
+        ]);
+        $category=Category::where('id', $request['id'])->first();
+        $category->name=$request['name'];
+        $category->save();
+
+        $msg="category Updated";
+        Alert::success('Done', $msg);
+        return back();
+
+    }
 }
