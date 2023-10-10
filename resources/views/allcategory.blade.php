@@ -1,5 +1,5 @@
 @extends('layouts.sidebar')
-@section('tittle', 'All-Post')
+@section('tittle', 'All-Category')
 @section('content')
             <div class="content-header">
                 <div class="d-flex align-items-center">
