@@ -39,6 +39,8 @@
                                         <div class="form-group">
                                             <label class="font-weight-700 font-size-16">Category </label>
                                             <input type="text" name="name" class="form-control" value="{{$category->name}}" required>
+                                            <input type="hidden" name="id" class="form-control" value="{{$category->id}}">
+
                                         </div>
                                     </div>
                                     <!--/span-->
