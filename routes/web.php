@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Intervention\Image\Facades\Image;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,29 +49,36 @@ Route::post('postcomment', [\App\Http\Controllers\CommentController::class, 'com
 Route::get('/', [HomeController::class, 'indexhome'])->name('home');
 Route::get('cat/{id}', [\App\Http\Controllers\CategoryController::class, 'entercat'])->name('cat');
 Route::get('details/{id}', [HomeController::class, 'detailsindex'])->name('details');
+Route::get('editpost/{id}', [\App\Http\Controllers\PostController::class, 'editpost'])->name('editpost');
+Route::post('updatepost', [\App\Http\Controllers\PostController::class, 'updatepost'])->name('updatepost');
 Route::get('/poimg/{filename}', function ($filename) {
     $path = storage_path('app/poimg/' . $filename);
 
     if (!File::exists($path)) {
         abort(404);
     }
-    $file = File::get($path);
-    $type = File::mimeType($path);
+    // Load the image using Intervention Image
+    $image = Image::make($path);
 
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
-    return $response;
+    // Reduce the image quality (e.g., to 60%)
+    $image->encode('jpg', 60); // Change 'jpg' to the desired format
+
+    // You can also return the image as a response
+    return $image->response('jpg'); //
 })->name('poimg');
 Route::get('/cat/{filename}', function ($filename) {
     $path = storage_path('app/cat/' . $filename);
 
-    if (!File::exists($path)) {
+    if (!file_exists($path)) {
         abort(404);
     }
-    $file = File::get($path);
-    $type = File::mimeType($path);
 
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
-    return $response;
+    // Load the image using Intervention Image
+    $image = Image::make($path);
+
+    // Reduce the image quality (e.g., to 60%)
+    $image->encode('jpg', 60); // Change 'jpg' to the desired format
+
+    // You can also return the image as a response
+    return $image->response('jpg'); //
 })->name('cat');

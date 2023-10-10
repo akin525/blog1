@@ -29,6 +29,8 @@
                         <h4 class="box-title">New Category</h4>
                     </div>
                     <div class="box-body">
+                        <x-validation-errors class="mb-4" />
+
                         <form action="{{route('cate')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-body">

@@ -44,7 +44,7 @@
                                         <tr>
                                             <td>{{$sa->topic}}</td>
                                             <td>{{$sa['created_at']}}</td>
-                                            <td><a href="#" class="badge badge-success">Edit</a></td>
+                                            <td><a href="{{route('editpost', $sa['id'])}}" class="badge badge-success" >Edit</a></td>
                                         </tr>
                                         @endforeach
                                         </tbody>
@@ -62,7 +62,11 @@
                     </div>
                 </div>
             </section>
+
+
+
 @endsection
 @section('script')
+
     <script src="{{asset('admin/js/pages/data-table.js')}}"></script>
 @endsection

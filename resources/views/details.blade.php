@@ -85,6 +85,8 @@
                             <!-- Start Comment Respond  -->
                             <div class="comment-respond">
                                 <h4 class="title">Post a comment</h4>
+                                <x-validation-errors class="alert alert-danger" />
+
                                 <form action="{{route('postcomment')}}" method="post">
                                     @csrf
                                     <p class="comment-notes"><span id="email-notes">Your email address will not be

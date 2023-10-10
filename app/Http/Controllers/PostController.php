@@ -44,4 +44,29 @@ class PostController
 
         return view('allpost', compact('allpost'));
     }
+    public function editpost($request)
+    {
+        $post=Post::where('id', $request)->first();
+        $category=Category::get();
+
+        return view('editpost', compact('post', 'category'));
+    }
+
+    public function updatepost(Request $request)
+    {
+        $request->validate([
+            'content'=>'required',
+            'category'=>'required',
+            'id'=>'required',
+        ]);
+
+        $post=Post::where('id', $request['id'])->first();
+        $post->content=$request['content'];
+        $post->topic=$request['topic'];
+        $post->save();
+
+        $msg="post Updated Successfully";
+        Alert::success('Done', $msg);
+        return back();
+    }
 }
