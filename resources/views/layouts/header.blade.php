@@ -10,7 +10,8 @@
 
     <!-- CSS
     ============================================ -->
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6117361441866120"
+            crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/vendor/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/vendor/font-awesome.css')}}">

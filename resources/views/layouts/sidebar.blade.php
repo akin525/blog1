@@ -10,7 +10,8 @@
     <meta name="author" content="">
 
 {{--    <link rel="icon" href="https://renomobilemoney.com/images/bn.jpeg"  />--}}
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6117361441866120"
+            crossorigin="anonymous"></script>
     <title>@yield('tittle')</title>
 
     <!-- Vendors Style-->
