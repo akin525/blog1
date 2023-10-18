@@ -58,18 +58,15 @@ Route::get('cat/{id}', [\App\Http\Controllers\CategoryController::class, 'enterc
 Route::get('details/{id}', [HomeController::class, 'detailsindex'])->name('details');
 Route::get('/poimg/{filename}', function ($filename) {
     $path = storage_path('app/poimg/' . $filename);
-
     if (!File::exists($path)) {
         abort(404);
     }
-    // Load the image using Intervention Image
-    $image = Image::make($path);
+    $file = File::get($path);
+    $type = File::mimeType($path);
 
-    // Reduce the image quality (e.g., to 60%)
-    $image->encode('jpg', 60); // Change 'jpg' to the desired format
-
-    // You can also return the image as a response
-    return $image->response('jpg'); //
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
 })->name('poimg');
 Route::get('/cat/{filename}', function ($filename) {
     $path = storage_path('app/cat/' . $filename);
