@@ -71,16 +71,13 @@ Route::get('/poimg/{filename}', function ($filename) {
 Route::get('/cat/{filename}', function ($filename) {
     $path = storage_path('app/cat/' . $filename);
 
-    if (!file_exists($path)) {
+    if (!File::exists($path)) {
         abort(404);
     }
+    $file = File::get($path);
+    $type = File::mimeType($path);
 
-    // Load the image using Intervention Image
-    $image = Image::make($path);
-
-    // Reduce the image quality (e.g., to 60%)
-    $image->encode('jpg', 60); // Change 'jpg' to the desired format
-
-    // You can also return the image as a response
-    return $image->response('jpg'); //
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
 })->name('cat');
