@@ -22,7 +22,7 @@ class CategoryController
             'picture'=>'required',
         ]);
 
-        $pic = Storage::put('cat', $request['picture']);
+        $pic = Storage::put('cat1', $request['picture']);
         $insert=Category::create([
             'name'=>$request['name'],
             'picture'=>$pic,

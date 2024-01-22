@@ -68,10 +68,10 @@ Route::get('/poimg/{filename}', function ($filename) {
     $response->header("Content-Type", $type);
     return $response;
 })->name('poimg');
-Route::get('/cat/{filename}', function ($filename) {
+Route::get('/cat1/{filename}', function ($filename) {
     $path = storage_path('app/cat/' . $filename);
 
-    if (!File::exists($path)) {
+    if (!File::exists($path)) \=
         abort(404);
     }
     $file = File::get($path);
@@ -80,4 +80,4 @@ Route::get('/cat/{filename}', function ($filename) {
     $response = Response::make($file, 200);
     $response->header("Content-Type", $type);
     return $response;
-})->name('cat');
+})->name('cat1');
