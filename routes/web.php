@@ -69,7 +69,7 @@ Route::get('/poimg/{filename}', function ($filename) {
     return $response;
 })->name('poimg');
 Route::get('/cat1/{filename}', function ($filename) {
-    $path = storage_path('app/cat/' . $filename);
+    $path = storage_path('app/cat1/' . $filename);
 
     if (!File::exists($path)) {
         abort(404);
